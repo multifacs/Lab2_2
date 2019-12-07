@@ -8,7 +8,6 @@ int main(int argc, char* argv[])
 	int n = 0, i = 0;
 	int* arr;
 	FILE* f;
-	int sw;
 
 	char line[10];
 
@@ -23,9 +22,7 @@ int main(int argc, char* argv[])
 	f = fopen(argv[1], "a+");
 	ScanFile(f, &n, &arr);
 
-	sw = 1;
-
-	while (sw) {
+	while (1) {
 		printf("Enter bubble, insertion, quick or exit: ");
 		//fgets(line, sizeof(line), stdin);
 		scanf("%s", line);
@@ -48,13 +45,11 @@ int main(int argc, char* argv[])
 			break;
 		case 'e':
 			printf("Quit");
-			sw = 0;
-			break;
+			fclose(f);
+			free(arr);
+			return 0;
 		default:
 			printf("Sosi\n");
 		}
 	}
-
-	fclose(f);
-	free(arr);
 }
