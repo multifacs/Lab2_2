@@ -27,7 +27,8 @@ void ScanFile(FILE* f, int* size, double** m)
 
 void insertionsort(double* arr, int n)
 {
-	int i, key, j;
+	int i, j;
+	double key;
 
 	clock_t start, stop;
 
@@ -49,7 +50,7 @@ void insertionsort(double* arr, int n)
 	printf("Sort required %.3lf seconds\n", (double)(stop - start) / CLK_TCK);
 }
 
-void quicksort(double* arr, int first, int last)
+/*void quicksort(double* arr, int first, int last)
 {
 	clock_t start, stop;
 
@@ -73,7 +74,7 @@ void qs(double* s_arr, int first, int last)
 			while (s_arr[right] > middle) right--;
 			if (left <= right)
 			{
-				int tmp = s_arr[left];
+				double tmp = s_arr[left];
 				s_arr[left] = s_arr[right];
 				s_arr[right] = tmp;
 				left++;
@@ -83,7 +84,41 @@ void qs(double* s_arr, int first, int last)
 		qs(s_arr, first, right);
 		qs(s_arr, left, last);
 	}
-}
+}*/
+/*
+clock_t quicksort(double* Arr, int first, int last)
+{
+	clock_t t1, t2;
+	t1 = clock();
+	int i = first, j = last;
+	double tmp, x = Arr[(first + last) / 2];
+
+	do {
+		while (Arr[i] < x)
+			i++;
+		while (Arr[j] > x)
+			j--;
+
+		if (i <= j)
+		{
+			if (i < j)
+			{
+				tmp = Arr[i];
+				Arr[i] = Arr[j];
+				Arr[j] = tmp;
+			}
+			i++;
+			j--;
+		}
+	} while (i <= j);
+
+	if (i < last)
+		quicksort(Arr, i, last);
+	if (first < j)
+		quicksort(Arr, first, j);
+	t2 = clock();
+	return ((double)(t2 - t1) / CLK_TCK);
+}*/
 
 void bubblesort(double* a, int n)
 {
@@ -106,4 +141,47 @@ void bubblesort(double* a, int n)
 	stop = clock();
 
 	printf("Sort required %.3lf seconds\n", (double)(stop - start) / CLK_TCK);
+}
+
+void quicksort(double* arr, int first, int last)
+{
+	clock_t start, stop;
+
+	start = clock();
+
+	qs(arr, first, last);
+
+	stop = clock();
+
+	printf("Sort required %.3lf seconds\n", (double)(stop - start) / CLK_TCK);
+}
+
+void qs(double* Arr, int first, int last)
+{
+	int i = first, j = last;
+	double tmp, x = Arr[(first + last) / 2];
+
+	do {
+		while (Arr[i] < x)
+			i++;
+		while (Arr[j] > x)
+			j--;
+
+		if (i <= j)
+		{
+			if (i < j)
+			{
+				tmp = Arr[i];
+				Arr[i] = Arr[j];
+				Arr[j] = tmp;
+			}
+			i++;
+			j--;
+		}
+	} while (i <= j);
+
+	if (i < last)
+		qs(Arr, i, last);
+	if (first < j)
+		qs(Arr, first, j);
 }
