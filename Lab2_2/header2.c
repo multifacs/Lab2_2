@@ -7,25 +7,25 @@
 #define SWAP(A, B) { A = A + B; B = A - B; A = A - B; }
 
 
-void Print(int size, int* m)
+void Print(int size, double* m)
 {
 	int i = 0;
 	printf("N = %d\n", size);
 	for (i = 0; i < size; i++)
-		printf("m[%d] = %d\n", i, m[i]);
+		printf("m[%d] = %lf\n", i, m[i]);
 }
 
-void ScanFile(FILE* f, int* size, int** m)
+void ScanFile(FILE* f, int* size, double** m)
 {
 	int i = 0, j = 0;
 	rewind(f);
 	fscanf(f, "%d\n", size);
-	*m = (int*)malloc(*size * sizeof(int));
+	*m = (double*)malloc(*size * sizeof(double));
 	for (i = 0; i < *size; i++)
-		fscanf(f, "m[%d] = %d\n", &j, &((*m)[i]));
+		fscanf(f, "m[%d] = %lf\n", &j, &((*m)[i]));
 }
 
-void insertionsort(int arr[], int n)
+void insertionsort(double* arr, int n)
 {
 	int i, key, j;
 
@@ -49,7 +49,7 @@ void insertionsort(int arr[], int n)
 	printf("Sort required %.3lf seconds\n", (double)(stop - start) / CLK_TCK);
 }
 
-void quicksort(int* arr, int first, int last)
+void quicksort(double* arr, int first, int last)
 {
 	clock_t start, stop;
 
@@ -62,7 +62,7 @@ void quicksort(int* arr, int first, int last)
 	printf("Sort required %.3lf seconds\n", (double)(stop - start) / CLK_TCK);
 }
 
-void qs(int* s_arr, int first, int last)
+void qs(double* s_arr, int first, int last)
 {
 	if (first < last)
 	{
@@ -85,7 +85,7 @@ void qs(int* s_arr, int first, int last)
 	}
 }
 
-void bubblesort(int* a, int n)
+void bubblesort(double* a, int n)
 {
 	int j, nn;
 

@@ -2,11 +2,11 @@
 #define _HEADER2_H_
 #include <stdio.h>
 
-void Print(int size, int* m);
-void ScanFile(FILE* f, int size, int** m);
-void insertionsort(int arr[], int n);
-void quicksort(int* arr, int first, int last);
-void qs(int* s_arr, int first, int last);
-void bubblesort(int* a, int n);
+void Print(int size, double* m);
+void ScanFile(FILE* f, int* size, double** m);
+void insertionsort(double* arr, int n);
+void quicksort(double* arr, int first, int last);
+void qs(double* s_arr, int first, int last);
+void bubblesort(double* a, int n);
 
 #endif

@@ -30,16 +30,19 @@ int main(int argc, char* argv[])
 		switch (line[0]) {
 		case 'b':
 			bubblesort(arr, n);
+			Print(n, arr);
 			free(arr);
 			ScanFile(f, &n, &arr);
 			break;
 		case 'i':
 			insertionsort(arr, n);
+			Print(n, arr);
 			free(arr);
 			ScanFile(f, &n, &arr);
 			break;
 		case 'q':
 			quicksort(arr, 0, n - 1);
+			Print(n, arr);
 			free(arr);
 			ScanFile(f, &n, &arr);
 			break;
