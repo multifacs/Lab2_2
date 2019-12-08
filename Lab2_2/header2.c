@@ -25,7 +25,7 @@ void ScanFile(FILE* f, int* size, int** m)
 		fscanf(f, "m[%d] = %d\n", &j, &((*m)[i]));
 }
 
-void insertionsort(int arr[], int n)
+void insertionsort(int* arr, int n)
 {
 	int i, key, j;
 
