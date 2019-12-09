@@ -6,7 +6,7 @@
 int main(int argc, char* argv[])
 {
 	int n = 0, i = 0;
-	int* arr;
+	long int* arr;
 	FILE* f;
 
 	char line[10];
@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 
 	srand(time(NULL));
 
-	f = fopen(argv[1], "a+");
+	f = fopen(argv[1], "r");
 	ScanFile(f, &n, &arr);
 
 	while (1) {
