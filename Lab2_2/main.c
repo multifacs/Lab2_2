@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 	double x = 0;
 	int* arr;
 	FILE* f;
-
+	
 	char line[10];
 
 	if (argc < 2)
@@ -20,12 +20,22 @@ int main(int argc, char* argv[])
 
 	srand(time(NULL));
 
-	f = fopen(argv[1], "a+");
+	printf("--- Program Lab2_2 ---\nThis program reads an array from file and compares the time it takes for different sorting algorithms to sort it.\n");
+
+	f = fopen(argv[1], "r");
+	if (!access(argv[1], 0))
+		printf("File %s is present.\n", argv[1]);
+	else
+	{
+		printf("File not found. Exiting program.");
+		return 1;
+	}
+	printf("Please choose the sorting algorithm.\nThe temporary array will be reset automatically.\n");
+
 	ScanFile(f, &n, &arr);
 
 	while (1) {
-		printf("Enter bubble, insertion, quick or exit: ");
-		//fgets(line, sizeof(line), stdin);
+		printf("Enter bubble (b), insertion (i), quick (q) or exit (e): ");
 		scanf("%s", line);
 
 		switch (line[0]) {
@@ -47,12 +57,12 @@ int main(int argc, char* argv[])
 			ScanFile(f, &n, &arr);
 			break;
 		case 'e':
-			printf("Quit");
+			printf("Quit.");
 			fclose(f);
 			free(arr);
 			return 0;
 		default:
-			printf("Sosi\n");
+			printf("Unknown command.\n");
 		}
 	}
 }
