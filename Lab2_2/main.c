@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 		printf("File %s is present.\n", argv[1]);
 	else
 	{
-		printf("File not found. Exiting program.");
+		printf("File not found.");
 		return 1;
 	}
 	printf("Please choose the sorting algorithm.\nThe temporary array will be reset automatically.\n");
