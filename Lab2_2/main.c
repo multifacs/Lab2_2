@@ -6,7 +6,6 @@
 int main(int argc, char* argv[])
 {
 	int n = 0, i = 0;
-	double x = 0;
 	int* arr;
 	FILE* f;
 	
